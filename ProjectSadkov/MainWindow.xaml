@@ -1,0 +1,86 @@
+﻿<Window x:Class="ProjectSadkov.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjectSadkov" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="594" Background="White">
+    <Grid>
+        <TabControl x:Name="TabControlAuth" HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" VerticalAlignment="Top" Width="566" BorderBrush="#FFACACAC" BorderThickness="0,1,0,0" SelectedIndex="0">
+            <TabItem x:Name="TabItemLogIn" Header="Вход" Style="{DynamicResource MaterialDesignNavigationRailTabItem}" Height="52" Margin="1,0,-1,0" Width="Auto">
+                <Grid x:Name="GridLogIn" Background="#fff">
+                    <TextBox x:Name="TextBoxLogInLogin" HorizontalAlignment="Left" Height="22" Margin="198,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" Style="{DynamicResource ResourceKey=MaterialDesignTextBox}" RenderTransformOrigin="0.265,0.409" LostFocus="TextBoxLogInLogin_LostFocus"/>
+                    <Button x:Name="ButtonLogIn" Content="Войти" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Margin="303,232,0,0" Style="{DynamicResource ResourceKey=MaterialDesignRaisedDarkButton}" Click="ButtonLogIn_Click"/>
+                    <TextBox x:Name="TextBoxLogInPassword" HorizontalAlignment="Left" Height="23" Margin="198,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" AutomationProperties.IsColumnHeader="True" ForceCursor="True" Visibility="Hidden" TextChanged="TextBoxLogInPassword_TextChanged" LostFocus="TextBoxLogInPassword_LostFocus"/>
+                    <Label x:Name="LabelLogInLogin" Content="Логин:" HorizontalAlignment="Left" Margin="130,86,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.463,0.5" Width="63"/>
+                    <Label x:Name="LabelLogInPassword" Content="Пароль:" HorizontalAlignment="Left" Margin="130,147,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.463,0.5" Width="63"/>
+                    <PasswordBox x:Name="PasswordBoxLogInPassword" HorizontalAlignment="Left" Margin="198,147,0,0" VerticalAlignment="Top" Width="230" PasswordChar="●" PasswordChanged="PasswordBoxLogInPassword_PasswordChanged" LostFocus="PasswordBoxLogInPassword_LostFocus" Height="23"/>
+                    <CheckBox x:Name="CheckBoxLogInShowPassword" HorizontalAlignment="Left" Margin="130,203,0,0" VerticalAlignment="Top" Checked="CheckBoxLogInShowPassword_Checked" Unchecked="CheckBoxLogInShowPassword_Unchecked">
+                        <TextBlock Style="{DynamicResource MaterialDesignOverlineTextBlock}" Opacity="0.6">Показать пароль</TextBlock>
+                    </CheckBox>
+                    <TextBlock x:Name="TextBlockLogInLoginError" Margin="198,107,134.415,203.434" Padding="0" RenderTransformOrigin="0.559,-0.831" Foreground="#DDFF0000" Width="230" MaxWidth="230" TextWrapping="WrapWithOverflow" Height="30"/>
+                    <TextBlock x:Name="TextBlockLogInPasswordError" Margin="198,168,134.415,143.434" Padding="0" RenderTransformOrigin="0.559,-0.831" Foreground="#DDFF0000" Width="230" MaxWidth="230" TextWrapping="WrapWithOverflow" Height="30"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabItemSignUp" Header="Регистрация" Style="{DynamicResource ResourceKey=MaterialDesignNavigationRailTabItem}" Margin="0" Width="Auto" Height="52">
+                <Grid Background="#fff">
+                    <TextBox x:Name="TextBoxSignUpLogin" HorizontalAlignment="Left" Height="22" Margin="208.5,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Style="{DynamicResource ResourceKey=MaterialDesignTextBox}" LostFocus="TextBoxSignUpLogin_LostFocus"/>
+                    <Label x:Name="LabelSignUpLogin" Content="Логин*" HorizontalAlignment="Left" Margin="53.5,23,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.463,0.5" Width="135"/>
+                    <TextBox x:Name="TextBoxSignUpName" HorizontalAlignment="Left" Height="22" Margin="208.5,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Style="{DynamicResource ResourceKey=MaterialDesignTextBox}" LostFocus="TextBoxSignUpName_LostFocus"/>
+                    <Label x:Name="LabelSignUpName" Content="Имя пользователя" HorizontalAlignment="Left" Margin="53.5,63,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.463,0.5" Width="135"/>
+                    <TextBox x:Name="TextBoxSignUpPhone" HorizontalAlignment="Left" Height="22" Margin="208.5,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Style="{DynamicResource ResourceKey=MaterialDesignTextBox}" LostFocus="TextBoxSignUpPhone_LostFocus" KeyUp="TextBoxSignUpPhone_KeyUp" KeyDown="TextBoxSignUpPhone_KeyDown"/>
+                    <Label x:Name="LabelSignUpPhone" Content="Номер телефона" HorizontalAlignment="Left" Margin="53.5,103,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.463,0.5" Width="135"/>
+                    <TextBox x:Name="TextBoxSignUpEmail" HorizontalAlignment="Left" Height="22" Margin="208.5,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Style="{DynamicResource ResourceKey=MaterialDesignTextBox}" LostFocus="TextBoxSignUpEmail_LostFocus"/>
+                    <Label x:Name="LabelSignUpEmail" Content="Email*" HorizontalAlignment="Left" Margin="53.5,143,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.463,0.5" Width="135"/>
+                    <TextBox x:Name="TextBoxSignUpPassword" HorizontalAlignment="Left" Height="22" Margin="208.5,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Style="{DynamicResource ResourceKey=MaterialDesignTextBox}" Visibility="Hidden" LostFocus="TextBoxSignUpPassword_LostFocus" TextChanged="TextBoxSignUpPassword_TextChanged"/>
+                    <PasswordBox x:Name="PasswordBoxSignUpPassword" HorizontalAlignment="Left" Margin="208.5,183,0,0" VerticalAlignment="Top" Width="300" Height="22" LostFocus="PasswordBoxSignUpPassword_LostFocus" PasswordChanged="PasswordBoxSignUpPassword_PasswordChanged"/>
+                    <Label x:Name="LabelSignUpPassword" Content="Пароль*" HorizontalAlignment="Left" Margin="53.5,183,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.463,0.5" Width="135"/>
+                    <TextBox x:Name="TextBoxSignUpConfirmPassword" HorizontalAlignment="Left" Height="22" Margin="208.5,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Style="{DynamicResource ResourceKey=MaterialDesignTextBox}" Visibility="Hidden" LostFocus="TextBoxSignUpConfirmPassword_LostFocus" TextChanged="TextBoxSignUpConfirmPassword_TextChanged"/>
+                    <PasswordBox x:Name="PasswordBoxSignUpConfirmPassword" HorizontalAlignment="Left" Margin="208.5,223,0,0" VerticalAlignment="Top" Width="300" Height="22" LostFocus="PasswordBoxSignUpConfirmPassword_LostFocus" PasswordChanged="PasswordBoxSignUpConfirmPassword_PasswordChanged"/>
+                    <Label x:Name="LabelSignUpConfirmPassword" Content="Подтверждение пароля*" HorizontalAlignment="Left" Margin="53.5,223,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.463,0.5" Width="135"/>
+                    <Button x:Name="ButtonSignUp" Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="320,273,0,0" VerticalAlignment="Top" Width="188" Click="ButtonSignUp_Click"/>
+                    <CheckBox x:Name="CheckBoxSignUpShowPassword" HorizontalAlignment="Left" Margin="53,280,0,0" VerticalAlignment="Top" Checked="CheckBoxSignUpShowPassword_Checked" Unchecked="CheckBoxSignUpShowPassword_Unchecked">
+                        <TextBlock Style="{DynamicResource ResourceKey=MaterialDesignOverlineTextBlock}" Opacity="0.6"><Run Text="Показать пароль"/></TextBlock>
+                    </CheckBox>
+                    <TextBlock x:Name="TextBlockSignUpLoginError" Margin="208,45,53.415,278.434" Padding="0" RenderTransformOrigin="0.559,-0.831" Foreground="#DDFF0000" MaxWidth="300" TextWrapping="WrapWithOverflow"/>
+                    <TextBlock x:Name="TextBlockSignUpNameError" Margin="209,85,53.415,238.434" Padding="0" RenderTransformOrigin="0.559,-0.831" Foreground="#DDFF0000" MaxWidth="300" TextWrapping="WrapWithOverflow"/>
+                    <TextBlock x:Name="TextBlockSignUpPhoneError" Margin="209,125,53.415,198.434" Padding="0" RenderTransformOrigin="0.559,-0.831" Foreground="#DDFF0000" MaxWidth="300" TextWrapping="WrapWithOverflow"/>
+                    <TextBlock x:Name="TextBlockSignUpEmailError" Margin="209,165,53.415,158.434" Padding="0" RenderTransformOrigin="0.559,-0.831" Foreground="#DDFF0000" MaxWidth="300" TextWrapping="WrapWithOverflow"/>
+                    <TextBlock x:Name="TextBlockSignUpPasswordError" Margin="209,205,53.415,118.434" Padding="0" RenderTransformOrigin="0.559,-0.831" Foreground="#DDFF0000" MaxWidth="300" TextWrapping="WrapWithOverflow"/>
+                    <TextBlock x:Name="TextBlockSignUpConfirmPasswordError" Margin="209,245,52.415,78.434" Padding="0" RenderTransformOrigin="0.559,-0.831" Foreground="#DDFF0000" MaxWidth="300" TextWrapping="WrapWithOverflow"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabItemNewPassword" Header="Восстановить" Style="{DynamicResource ResourceKey=MaterialDesignNavigationRailTabItem}" Height="52" Width="Auto">
+                <Grid x:Name="GridNewPassword">
+                    <Label x:Name="LabelNewPasswordLogin" Content="Email или логин" HorizontalAlignment="Left" Margin="33,44,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.463,0.5" Width="102"/>
+                    <TextBox x:Name="TextBoxNewPasswordLogin" HorizontalAlignment="Left" Height="22" Margin="180,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Style="{DynamicResource ResourceKey=MaterialDesignTextBox}" MaxLength="1000" LostFocus="TextBoxNewPasswordLogin_LostFocus"/>
+                    <TextBlock x:Name="TextBlockNewPasswordLoginError" Padding="0" RenderTransformOrigin="0.559,-0.831" Foreground="#DDFF0000" MaxWidth="300" TextWrapping="WrapWithOverflow" Margin="180,66,182.415,239.434"/>
+                    <Button x:Name="ButtonNewPasswordSendCode" Content="Отправить код" HorizontalAlignment="Left" Margin="401,40,0,0" VerticalAlignment="Top" Width="132" Click="ButtonNewPasswordSendCode_Click"/>
+                    <Label x:Name="LabelNewPasswordCode" Content="Код подтверждения" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.463,0.5" Margin="33,94,0,0" Width="128" Visibility="Hidden"/>
+                    <TextBox x:Name="TextBoxNewPasswordCode" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" VerticalAlignment="Top" Width="353" Style="{DynamicResource ResourceKey=MaterialDesignTextBox}" Margin="180,93,0,0" Text="" TextAlignment="Center" FontSize="18" FontStretch="UltraExpanded" Visibility="Hidden" TextChanged="TextBoxNewPasswordCode_TextChanged" MaxLength="4"/>
+                    <Label x:Name="labelNewPasswordCodeInfo" Content="Код подтверждения содержит 4 цифры и  был отправлен на вашу почту." Margin="33,130,147,190" FontSize="10" Opacity="0.6" Height="20" Visibility="Hidden"/>
+                    <TextBlock x:Name="LabelNewPasswordSendNewCode" Text="Новый код подтверждения можно будет запросить через: " Margin="33,151,244.415,170.434" FontSize="10" Opacity="0.6" Height="20" Padding="4" Visibility="Hidden"/>
+                    <TextBlock x:Name="LabelNewPasswordTimer" Text="XX:XX." Margin="323,151,199.415,170.434" FontSize="10" Opacity="0.6" Padding="4" Visibility="Hidden"/>
+                    <Label x:Name="LabelNewPasswordPassword" Content="Новый пароль" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.463,0.5" Margin="33,190,0,0" Width="95" Visibility="Hidden"/>
+                    <TextBox x:Name="TextBoxNewPasswordPassword" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="353" Style="{DynamicResource ResourceKey=MaterialDesignTextBox}" Margin="180,190,0,0" TextChanged="TextBoxNewPasswordPassword_PasswordChanged" LostFocus="TextBoxNewPasswordPassword_LostFocus" Visibility="Hidden"/>
+                    <PasswordBox x:Name="PasswordBoxNewPasswordPassword" HorizontalAlignment="Left" Margin="180,188,0,0" VerticalAlignment="Top" Width="353" Visibility="Hidden" PasswordChanged="PasswordBoxNewPasswordPassword_PasswordChanged"/>
+                    <Label x:Name="LabelNewPasswordConfirmPassword" Content="Подтверждение пароля" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.463,0.5" Margin="33,220,0,0" Width="149" Visibility="Hidden"/>
+                    <TextBox x:Name="TextBoxNewPasswordConfirmPassword" HorizontalAlignment="Left" Height="22" TextWrapping="Wrap" VerticalAlignment="Top" Width="353" Style="{DynamicResource ResourceKey=MaterialDesignTextBox}" Margin="180,220,0,0" Visibility="Hidden" TextChanged="TextBoxNewPasswordConfirmPassword_PasswordChanged"/>
+                    <PasswordBox x:Name="PasswordBoxNewPasswordConfirmPassword" HorizontalAlignment="Left" Margin="180,220,0,0" VerticalAlignment="Top" Width="353" Visibility="Hidden" PasswordChanged="PasswordBoxNewPasswordConfirmPassword_PasswordChanged"/>
+                    <Button x:Name="ButtonNewPasswordResetPassword" Content="Восстановить" HorizontalAlignment="Left" Margin="401,275,0,0" VerticalAlignment="Top" Width="132" Visibility="Hidden" Click="ButtonNewPasswordResetPassword_Click"/>
+                    <CheckBox x:Name="CheckBoxNewPasswordShowPassword" HorizontalAlignment="Left" Margin="36,249,0,0" VerticalAlignment="Top" Checked="CheckBoxNewPasswordShowPassword_Checked" Unchecked="CheckBoxNewPasswordShowPassword_Unchecked" Visibility="Hidden">
+                        <TextBlock x:Name="TextBlockNewPasswordShowPassword" Style="{DynamicResource ResourceKey=MaterialDesignOverlineTextBlock}" Opacity="0.6" Visibility="Hidden"><Run Text="Показать пароль"/></TextBlock>
+                    </CheckBox>
+                    <TextBlock x:Name="TextBlockNewPasswordCodeError" Padding="0" RenderTransformOrigin="0.559,-0.831" Foreground="#DDFF0000" TextWrapping="WrapWithOverflow" Margin="180,123,29.415,195.434" HorizontalAlignment="Center" Visibility="Hidden"/>
+                    <TextBlock x:Name="TextBlockNewPasswordConfirmPasswordError" Padding="0" RenderTransformOrigin="0.559,-0.831" Foreground="#DDFF0000" TextWrapping="WrapWithOverflow" Margin="180,244,29.415,74.434" Visibility="Hidden"/>
+                    <TextBlock x:Name="TextBlockNewPasswordPasswordError" Padding="0" RenderTransformOrigin="0.559,-0.831" Foreground="#DDFF0000" TextWrapping="WrapWithOverflow" Margin="180,211,28.415,107.434" Visibility="Hidden"/>
+                    <TextBlock x:Name="TextBlockNewPasswordPasswordError1" Padding="0" RenderTransformOrigin="0.559,-0.831" Foreground="#DDFF0000" MaxWidth="300" TextWrapping="WrapWithOverflow" Margin="182,211,29.415,94.434" Visibility="Hidden"/>
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <materialDesign:PackIcon x:Name="PackIconConnection" Kind="Connection" Foreground="#DD1DB003" Margin="561,10,0,0" Visibility="Hidden"></materialDesign:PackIcon>
+    </Grid>
+</Window>
