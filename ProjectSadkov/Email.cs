@@ -33,5 +33,28 @@ namespace ProjectSadkov
                 return false;
             }
         }
+
+        static public bool sendWellcomeLetter(string emailTo)
+        {
+            try
+            {
+                MailAddress to = new MailAddress(emailTo);
+                MailMessage m = new MailMessage(from, to);
+                m.Subject = "Добро пожаловать в Pcs71ProjecTDisk.";
+                m.Body = "Вы успешно создали аккаунт. Мы очень этому рады!";
+                m.IsBodyHtml = true;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = networkCredential;
+                smtp.EnableSsl = true;
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.Send(m);
+                return true;
+            }
+            catch (Exception e)
+            {
+                OurMessageBox.Show("Не удача!", "Не удалось отправить код", "Отсутствует соединение с интернетом или ваш почтовый сервис для уеб...", e.ToString());
+                return false;
+            }
+        }
     }
 }

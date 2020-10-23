@@ -90,6 +90,7 @@ namespace ProjectSadkov
                     "Пользователь создан.",
                     "Теперь вы можете авторизироваться."
                 );
+                Email.sendWellcomeLetter(email);
             } catch (Exception e)
             {
                 OurMessageBox.Show(
