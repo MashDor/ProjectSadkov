@@ -15,7 +15,7 @@ namespace ProjectSadkov
         {
             try
             {
-                string connStr = "Server=f0480035.xsph.ru;Database=f0480035_pcs71projectdisk;User=f0480035_pcs71projectdisk;Password=pcs147854@;OldGuids=true;";
+                string connStr = "Server=f0480651.xsph.ru;Database=f0480651_project;User=f0480651_project;Password=pcs147854@;OldGuids=true";
                 connection = new MySqlConnection(connStr);
                 connection.Open();
             } catch (Exception e)
