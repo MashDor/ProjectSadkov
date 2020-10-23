@@ -21,7 +21,7 @@ namespace ProjectSadkov
             } catch (Exception e)
             {
                 OurMessageBox.Show(
-                    "Не удача!", 
+                    "Неудача!", 
                     "Соединение не было установленно.",
                     "Проверте интернет соединение или попробуйте позже.",
                     e.ToString()
